@@ -1,0 +1,20 @@
+<div class="section">
+  <h1>Lista de tarefas</h1>
+  <form action="GET" method="GET">
+    <input [(ngModel)]="nome" type="text" name="nome" id="nome">
+    <button class="add" (click)="adicionarCard()">Adicionar</button>
+  </form>
+
+  <div class="item" [class.finalizado]="card.concluido" *ngFor="let card of listaDeCards; let i = index">
+    <div class="titulo">
+      <h2>{{ card.nome }}</h2>
+    </div>
+    <div class="botoes">
+      <button (click)="removerCard(i)">
+        <img src="https://www.svgrepo.com/show/83631/rubbish-bin.svg" alt="lixeira" width="20">
+      </button>
+      <button (click)="editarCard(i)">Editar</button>
+      <button *ngIf="!card.concluido" (click)="concluirCard(i)">Concluir</button>
+    </div>
+  </div>
+</div>
