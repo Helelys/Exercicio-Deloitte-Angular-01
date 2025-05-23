@@ -14,7 +14,7 @@
         <img src="https://www.svgrepo.com/show/83631/rubbish-bin.svg" alt="lixeira" width="20">
       </button>
       <button (click)="editarCard(i)">Editar</button>
-      <button *ngIf="!card.concluido" (click)="concluirCard(i)">Concluir</button>
+      <button (click)="concluirCard(i)">{{textoConclusao}}</button>
     </div>
   </div>
 </div>

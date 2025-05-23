@@ -12,6 +12,8 @@ export class HeaderComponent {
   titulo: string = 'Mi Angular';
   nome: string = "";
   textoAqui: string = "";
+  concluido = true;
+  textoConclusao:string = "Concluir";
 
   listaDeCards: Card[] = [];
 
@@ -27,7 +29,14 @@ export class HeaderComponent {
   }
 
   concluirCard(index: number) {
-    this.listaDeCards[index].concluido = true;
+    this.listaDeCards[index].concluido = !this.listaDeCards[index].concluido;
+    if (this.concluido == true) {
+      this.textoConclusao = "Não concluído";
+      this.concluido = false;
+    } else {
+      this.textoConclusao = "Concluído"
+      this.concluido = true;
+    }
   }
 
   editarCard(index: number) {
